@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Qizlarjon Digital Lab</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fffaf5;
+      color: #30232a;
+    }
+
+    header {
+      background: #84264b;
+      color: white;
+      padding: 25px 20px 35px;
+      border-radius: 0 0 28px 28px;
+    }
+
+    .brand {
+      font-size: 13px;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: 30px;
+      line-height: 1.2;
+      margin-top: 30px;
+    }
+
+    header p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #ffeaf1;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .welcome {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid #eedde3;
+      margin-bottom: 25px;
+    }
+
+    .welcome h2 {
+      color: #84264b;
+      font-size: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #eedde3;
+      border-radius: 18px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 14px;
+      color: #84264b;
+      margin: 5px 0;
+    }
+
+    .card p {
+      font-size: 12px;
+      line-height: 1.5;
+      color: #796a71;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 12px;
+      background: #84264b;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .progress {
+      background: #f6dfe7;
+      height: 8px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+
+    .progress div {
+      width: 25%;
+      height: 100%;
+      background: #84264b;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px 40px;
+      color: #796a71;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    @media (min-width: 600px) {
+      .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="brand">QIZLARJON KLUBI</div>
+
+    <h1>Qizlarjon<br>Digital Lab 🌷</h1>
+
+    <p>
+      O‘rgan. Yarat. Innovatsiya qil.
+      Raqamli kelajagingni o‘z qo‘ling bilan qur!
+    </p>
+  </header>
+
+  <main>
+
+    <section class="welcome">
+      <h2>Xush kelibsan! 💗</h2>
+
+      <p>
+        Bu — talaba qizlar uchun raqamli ta’lim,
+        kreativ texnologiyalar va amaliy loyihalar
+        maydoni.
+      </p>
+
+      <strong>Bilimdan — haqiqiy mahsulotgacha!</strong>
+    </section>
+
+    <h2>Bizning laboratoriyamiz</h2>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">📸</div>
+        <h3>Mobilografiya</h3>
+        <p>Professional foto olishni o‘rgan.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🎬</div>
+        <h3>Video Studio</h3>
+        <p>Video yarat va montaj qil.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🤖</div>
+        <h3>AI Studio</h3>
+        <p>Sun’iy intellekt bilan ijod qil.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🎨</div>
+        <h3>Design Lab</h3>
+        <p>O‘z dizaynlaringni yarat.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">📱</div>
+        <h3>SMM Studio</h3>
+        <p>Raqamli kontent yaratishni o‘rgan.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🛡️</div>
+        <h3>Digital Safety</h3>
+        <p>Internetda xavfsiz ishlashni o‘rgan.</p>
+      </article>
+
+    </div>
+
+    <h2>Shaxsiy rivojlanishim</h2>
+
+    <section class="welcome">
+      <p>Platformadagi rivojlanish ko‘rsatkichi</p>
+
+      <div class="progress">
+        <div></div>
+      </div>
+
+      <p>
+        Bu hozircha dizayn namunasi.
+        Shaxsiy natijalarni saqlash funksiyasi
+        keyingi bosqichda yaratiladi.
+      </p>
+
+      <button class="button" onclick="showMessage()">
+        Mening maqsadim 🎯
+      </button>
+
+      <p id="message"></p>
+    </section>
+
+  </main>
+
+  <footer>
+    <strong>Qizlarjon Digital Lab</strong><br>
+    Talaba qizlar uchun raqamli imkoniyatlar laboratoriyasi.<br>
+    O‘rganishdan — yaratishgacha. 💗
+  </footer>
+
+  <script>
+    function showMessage() {
+      document.getElementById("message").textContent =
+        "Mening maqsadim — raqamli mahsulot yaratish! 🚀";
+    }
+  </script>
+
+</body>
+  </html>
