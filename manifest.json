@@ -1,7 +1,7 @@
-{
+ {
   "name": "Qizlarjon Digital Lab",
   "short_name": "Qizlarjon",
-  "description": "Talaba qizlar uchun IT va maktabgacha ta'lim laboratoriyasi",
+  "description": "Talaba qizlar uchun IT, maktabgacha ta’lim va raqamli innovatsiyalar platformasi.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -9,5 +9,13 @@
   "background_color": "#fff5f9",
   "theme_color": "#591b3c",
   "lang": "uz",
-  "categories": ["education", "productivity"]
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "./logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
 }
