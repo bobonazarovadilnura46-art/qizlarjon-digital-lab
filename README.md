@@ -2,7 +2,7 @@
 
 ### Talaba qizlar uchun raqamli ta’lim, IT va maktabgacha ta’lim innovatsiyalari platformasi.
 
-**Loyiha tashabbuskori va muallifi:** Bobonazarova Dilnura
+**Loyiha tashabbuskori va muallifi:** Bobonazarova Dilnura Salim qizi
 
 ## Loyiha haqida
 
@@ -24,7 +24,7 @@ Talaba qizlarni raqamli texnologiyalardan shunchaki foydalanuvchi emas, balki mu
 
 ## Mualliflik
 
-Loyiha Bobonazarova Dilnura tashabbusi bilan ishlab chiqilmoqda.
+Loyiha Bobonazarova Dilnura Salim qizi tashabbusi bilan ishlab chiqilmoqda.
 
 Ushbu repozitoriyda loyihaning dasturiy kodi, hujjatlari va rivojlanish bosqichlari yuritiladi.
 
