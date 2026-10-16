@@ -349,6 +349,58 @@
         </button>
 
       </div>
+   <!-- SMART MTT CREATOR BOSHLANDI -->
+<div class="game-box" id="smart-mtt-creator">
+
+  <h3>🎨 Smart MTT Creator</h3>
+
+  <p>
+    Maktabgacha yoshdagi bolalar uchun o‘z ta’limiy
+    mini-o‘yiningizni yarating!
+  </p>
+
+  <label for="creatorTitle">O‘yin nomi:</label>
+  <input type="text" id="creatorTitle"
+         placeholder="Masalan: Ranglarni o‘rganamiz">
+
+  <label for="creatorAge">Bolalarning yosh guruhi:</label>
+  <select id="creatorAge">
+    <option value="3–4 yosh">3–4 yosh</option>
+    <option value="4–5 yosh">4–5 yosh</option>
+    <option value="5–6 yosh">5–6 yosh</option>
+  </select>
+
+  <label for="creatorQuestion">Savol:</label>
+  <input type="text" id="creatorQuestion"
+         placeholder="Masalan: Olma qaysi rangda?">
+
+  <label for="creatorCorrect">To‘g‘ri javob:</label>
+  <input type="text" id="creatorCorrect"
+         placeholder="Qizil">
+
+  <label for="creatorWrong1">Noto‘g‘ri javob 1:</label>
+  <input type="text" id="creatorWrong1"
+         placeholder="Ko‘k">
+
+  <label for="creatorWrong2">Noto‘g‘ri javob 2:</label>
+  <input type="text" id="creatorWrong2"
+         placeholder="Yashil">
+
+  <button type="button" class="button"
+          onclick="createSmartGame()">
+    ✨ O‘yin yaratish
+  </button>
+
+  <div id="createdGame" style="display:none; margin-top:20px;">
+    <h3 id="createdGameTitle"></h3>
+    <p id="createdGameAge"></p>
+    <h4 id="createdGameQuestion"></h4>
+    <div id="createdGameOptions"></div>
+    <p id="createdGameMessage" aria-live="polite"></p>
+  </div>
+
+</div>
+<!-- SMART MTT CREATOR TUGADI -->
     </section>
 
     <section class="progress-box">
