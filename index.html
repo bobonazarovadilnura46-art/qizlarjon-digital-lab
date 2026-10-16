@@ -233,8 +233,7 @@
     <h1>Qizlarjon <span>Digital Lab</span></h1>
 
     <p>
-      O‘rganishdan yaratishgacha.
-      Talaba qizlar uchun raqamli ko‘nikmalar,
+      O‘rganishdan yaratishgacha.Raqamli ko‘nikmalar,
       ijodkorlik va pedagogik innovatsiyalar maydoni.
     </p>
 
@@ -368,6 +367,7 @@
     <option value="3–4 yosh">3–4 yosh</option>
     <option value="4–5 yosh">4–5 yosh</option>
     <option value="5–6 yosh">5–6 yosh</option>
+  <option value="6-7 yosh">6-7yosh</option>
   </select>
 
   <label for="creatorQuestion">Savol:</label>
@@ -512,6 +512,59 @@
 
       document.getElementById("gameMessage").style.color =
         "#352532";
+    }
+  function createSmartGame() {
+  const title = document.getElementById("creatorTitle").value.trim();
+  const age = document.getElementById("creatorAge").value;
+  const question = document.getElementById("creatorQuestion").value.trim();
+  const correct = document.getElementById("creatorCorrect").value.trim();
+  const wrong1 = document.getElementById("creatorWrong1").value.trim();
+  const wrong2 = document.getElementById("creatorWrong2").value.trim();
+
+  if (!title || !question || !correct || !wrong1 || !wrong2) {
+    alert("Iltimos, barcha maydonlarni to‘ldiring!");
+    return;
+  }
+
+  const answers = [correct, wrong1, wrong2];
+  if (new Set(answers.map(a => a.toLocaleLowerCase())).size !== 3) {
+    alert("Javoblar bir-biridan farq qilishi kerak!");
+    return;
+  }
+
+  document.getElementById("createdGameTitle").textContent = "🎮 " + title;
+  document.getElementById("createdGameAge").textContent = "Yosh guruhi: " + age;
+  document.getElementById("createdGameQuestion").textContent = question;
+
+  answers.sort(() => Math.random() - 0.5);
+
+  const container = document.getElementById("createdGameOptions");
+  container.replaceChildren();
+  document.getElementById("createdGameMessage").textContent = "";
+
+  answers.forEach(answer => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "button";
+    button.textContent = answer;
+    button.style.margin = "6px";
+
+    button.addEventListener("click", () => {
+      const message = document.getElementById("createdGameMessage");
+
+      if (answer.toLocaleLowerCase() === correct.toLocaleLowerCase()) {
+        message.textContent = "🎉 Barakalla! To‘g‘ri javob!";
+        message.style.color = "#27865b";
+      } else {
+        message.textContent = "😊 Yana bir bor urinib ko‘ring!";
+        message.style.color = "#a52d68";
+      }
+    });
+
+    container.appendChild(button);
+  });
+
+  document.getElementById("createdGame").style.display = "block";
     }
   </script>
 
