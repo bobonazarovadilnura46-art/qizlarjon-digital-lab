@@ -632,6 +632,149 @@
 
   document.getElementById("createdGame").style.display = "block";
     }
+ // SMART MTT CREATOR — CHOP ETISH
+
+function addPrintButtons() {
+  const game = document.getElementById("createdGame");
+  if (!game || document.getElementById("printControls")) return;
+
+  const controls = document.createElement("div");
+  controls.id = "printControls";
+  controls.style.cssText =
+    "display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:20px 0;";
+
+  controls.innerHTML = `
+    <button type="button" onclick="printSmartGame('color')">
+      🎨 Rangli chop etish
+    </button>
+    <button type="button" onclick="printSmartGame('bw')">
+      🖤 Oq-qora chop etish
+    </button>
+  `;
+
+  game.appendChild(controls);
+}
+
+function printSmartGame(mode) {
+  const game = document.getElementById("createdGame");
+  if (!game) return;
+
+  const copy = game.cloneNode(true);
+  const controls = copy.querySelector("#printControls");
+  if (controls) controls.remove();
+
+  const options = copy.querySelector("#createdGameOptions");
+  const title = copy.querySelector("#createdGameTitle");
+  const age = copy.querySelector("#createdGameAge");
+  const question = copy.querySelector("#createdGameQuestion");
+
+  const printWindow = window.open("", "_blank");
+
+  if (!printWindow) {
+    alert("Chop etish oynasi ochilmadi. Brauzerda yangi oynalarga ruxsat bering.");
+    return;
+  }
+
+  printWindow.document.write(`
+    <!DOCTYPE html>
+    <html lang="uz">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Smart MTT Creator — Chop etish</title>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          color: #333;
+          max-width: 700px;
+          margin: 25px auto;
+          padding: 20px;
+          line-height: 1.6;
+        }
+
+        h2, h3 { text-align: center; }
+        .print-card {
+          border: 2px solid #e4c6d6;
+          border-radius: 14px;
+          padding: 20px;
+        }
+
+        #createdGameOptions {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
+        }
+
+        #createdGameOptions button {
+          padding: 12px 18px;
+          border: 1px solid #d94b91;
+          border-radius: 10px;
+          background: #f5d5e5;
+          color: #541b3b;
+          font-size: 16px;
+        }
+
+        .print-instruction {
+          margin-top: 25px;
+          border-top: 1px dashed #999;
+          padding-top: 12px;
+        }
+
+        ${mode === "bw" ? `
+          body { color: #000; }
+          .print-card { border-color: #000; }
+          #createdGameOptions button {
+            background: #fff;
+            color: #000;
+            border: 1px solid #000;
+          }
+        ` : ""}
+
+        .print-button {
+          display: block;
+          margin: 20px auto;
+          padding: 12px 20px;
+          font-size: 16px;
+        }
+
+        @media print {
+          .print-button { display: none; }
+          body { margin: 0; padding: 10px; }
+        }
+      </style>
+    </head>
+    <body>
+      <h2>Smart MTT Creator</h2>
+      <div class="print-card">
+        ${copy.innerHTML}
+        <div class="print-instruction">
+          <strong>Topshiriq:</strong>
+          Javoblarni belgilang va tarbiyachi bilan muhokama qiling.
+        </div>
+      </div>
+      <button class="print-button" onclick="window.print()">
+        🖨️ Chop etish
+      </button>
+    </body>
+    </html>
+  `);
+
+  printWindow.document.close();
+}
+
+const smartGameObserver = new MutationObserver(() => {
+  const game = document.getElementById("createdGame");
+
+  if (game && game.children.length > 0) {
+    addPrintButtons();
+  }
+});
+
+smartGameObserver.observe(document.body, {
+  childList: true,
+  subtree: true
+});
   </script>
 
 </body>
