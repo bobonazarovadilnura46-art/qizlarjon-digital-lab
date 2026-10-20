@@ -827,7 +827,111 @@ smartGameObserver.observe(document.body, {
   childList: true,
   subtree: true
 });
-      </script>
+     function createCenterPlan() {
+  const age = document.getElementById("centerAge").value;
+  const topic = document.getElementById("centerTopic").value.trim();
+  const goal = document.getElementById("centerGoal").value.trim();
+  const result = document.getElementById("centerPlanResult");
+
+  result.replaceChildren();
+
+  if (!topic) {
+    result.textContent = "Iltimos, avval mavzuni kiriting.";
+    return;
+  }
+
+  if (!goal) {
+    result.textContent = "Iltimos, ta’limiy maqsadni kiriting.";
+    return;
+  }
+
+  const activities = [
+    {
+      name: "1. Til va nutq",
+      activity: "Mavzu asosida suhbat va hikoya tuzish",
+      materials: "Mavzuga oid rasmlar va so‘z kartochkalari",
+      steps: "Rasmlarni kuzating, savollarga javob bering va mavzu bo‘yicha gap tuzing.",
+      task: "Mavzu haqida kamida bitta mazmunli gap ayting."
+    },
+    {
+      name: "2. Qurish-yasash, konstruksiyalash va matematika",
+      activity: "Mavzuga oid buyum yoki maket yaratish",
+      materials: "Kublar, konstruktorlar va sanash materiallari",
+      steps: "Mavzuga mos tuzilma yarating, buyumlarni sanang yoki taqqoslang.",
+      task: "Mavzuga mos shakl yoki maket yarating."
+    },
+    {
+      name: "3. Fan va tabiat",
+      activity: "Kuzatish va taqqoslash",
+      materials: "Mavzuga mos tabiiy buyumlar, rasmlar yoki xavfsiz kuzatish materiallari",
+      steps: "Buyumlarni kuzating, ularning xususiyatlarini taqqoslang va farqlarini ayting.",
+      task: "Kuzatgan narsangizning kamida bitta xususiyatini ayting."
+    },
+    {
+      name: "4. Syujetli-rolli o‘yinlar va sahnalashtirish",
+      activity: "Mavzu asosida rolli o‘yin",
+      materials: "O‘yinchoqlar, rollar uchun belgilar va xavfsiz jihozlar",
+      steps: "Rollarni taqsimlang, vaziyatni o‘ynang va bir-biringiz bilan muloqot qiling.",
+      task: "Tanlangan rolga mos harakat yoki suhbatni bajaring."
+    },
+    {
+      name: "5. San’at",
+      activity: "Mavzu asosida ijodiy ish",
+      materials: "Qog‘oz, qalam, bo‘yoq yoki xavfsiz ijodiy materiallar",
+      steps: "Mavzuni rasm, applikatsiya yoki boshqa mos ijodiy usulda ifodalang.",
+      task: "Mavzuga mos ijodiy ish yarating."
+    }
+  ];
+
+  const heading = document.createElement("h3");
+  heading.textContent = "📚 " + topic + " — faoliyat rejasi";
+  result.appendChild(heading);
+
+  const ageText = document.createElement("p");
+  ageText.textContent = "Yosh guruhi: " + age;
+  result.appendChild(ageText);
+
+  const goalText = document.createElement("p");
+  goalText.textContent = "Umumiy ta’limiy maqsad: " + goal;
+  result.appendChild(goalText);
+
+  activities.forEach(function(item) {
+    const card = document.createElement("article");
+    card.style.cssText =
+      "background:#fff;padding:16px;margin:12px 0;" +
+      "border:1px solid #e4c6d6;border-radius:12px;";
+
+    const title = document.createElement("h3");
+    title.textContent = item.name;
+    card.appendChild(title);
+
+    const activity = document.createElement("p");
+    activity.textContent = "Faoliyat: " + item.activity;
+    card.appendChild(activity);
+
+    const materials = document.createElement("p");
+    materials.textContent = "Jihozlar: " + item.materials;
+    card.appendChild(materials);
+
+    const steps = document.createElement("p");
+    steps.textContent = "Bajarish tartibi: " + item.steps;
+    card.appendChild(steps);
+
+    const task = document.createElement("p");
+    task.textContent = "Bolaga topshiriq: " + item.task;
+    card.appendChild(task);
+
+    result.appendChild(card);
+  });
+
+  const note = document.createElement("p");
+  note.textContent =
+    "Metodik eslatma: faoliyatlarni tanlangan mavzu, yosh " +
+    "xususiyatlari va amaldagi Ilk qadam dasturiga muvofiq " +
+    "tarbiyachi tekshirishi va moslashtirishi kerak.";
+  result.appendChild(note);
+    }
+  </script>
 
 </body>
   </html>
