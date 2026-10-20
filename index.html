@@ -794,7 +794,109 @@ function printSmartGame(mode) {
           .print-button { display: none; }
           body { margin: 0; padding: 10px; }
         }
-      </style>
+      /* SMART MTT CREATOR — PROFESSIONAL DIZAYN */
+#smart-mtt-creator {
+  width: 100%;
+  max-width: 760px;
+  margin: 24px auto;
+  padding: 28px;
+  box-sizing: border-box;
+  background: linear-gradient(145deg, #fff8fc, #fff0f7);
+  border: 1px solid #f0d6e4;
+  border-radius: 24px;
+  box-shadow: 0 8px 28px rgba(89, 27, 60, 0.07);
+}
+
+#smart-mtt-creator h3 {
+  margin: 0 0 12px;
+  color: #591b3c;
+  font-size: 25px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+#smart-mtt-creator label {
+  display: block;
+  margin: 20px 0 8px;
+  color: #591b3c;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#smart-mtt-creator input,
+#smart-mtt-creator select,
+#smart-mtt-creator textarea {
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  margin: 0;
+  padding: 14px 16px;
+  box-sizing: border-box;
+  border: 1px solid #e8cbd9;
+  border-radius: 12px;
+  background: #fff;
+  color: #35232d;
+  font: inherit;
+  font-size: 16px;
+}
+
+#smart-mtt-creator textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+#smart-mtt-creator input:focus,
+#smart-mtt-creator select:focus,
+#smart-mtt-creator textarea:focus {
+  outline: 2px solid #e95098;
+  outline-offset: 2px;
+}
+
+#smart-mtt-creator button {
+  max-width: 100%;
+  white-space: normal;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+#smart-mtt-creator #createdGame {
+  margin-top: 26px;
+  padding: 22px;
+  box-sizing: border-box;
+  border: 1px solid #efd3e1;
+  border-radius: 18px;
+  background: #fff;
+  overflow-wrap: anywhere;
+}
+
+#smart-mtt-creator #createdGameOptions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+#smart-mtt-creator #createdGameOptions button {
+  margin: 0;
+  padding: 12px 18px;
+  border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+  #smart-mtt-creator {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  #smart-mtt-creator h3 {
+    font-size: 22px;
+  }
+
+  #smart-mtt-creator #createdGame {
+    padding: 16px;
+  }
+    }
+    </style>
     </head>
     <body>
       <h2>Smart MTT Creator</h2>
