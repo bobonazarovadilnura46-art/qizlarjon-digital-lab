@@ -775,72 +775,7 @@ smartGameObserver.observe(document.body, {
   childList: true,
   subtree: true
 });
- // SMART MTT CREATOR — CHOP ETISHNI TUZATISH
-document.addEventListener("click", function (event) {
-  const button = event.target.closest("#printColorBtn, #printBWBtn");
-
-  if (!button) return;
-
-  event.preventDefault();
-
-  const mode = button.id === "printColorBtn" ? "color" : "bw";
-  const game = document.getElementById("createdGame");
-
-  if (!game) {
-    alert("Avval o'yin yarating!");
-    return;
-  }
-
-  const printContent = game.cloneNode(true);
-  const controls = printContent.querySelector("#printControls");
-
-  if (controls) controls.remove();
-
-  const printWindow = window.open("", "_blank");
-
-  if (!printWindow) {
-    alert("Yangi oyna bloklandi. Brauzer sozlamalarida ruxsat bering.");
-    return;
-  }
-
-  printWindow.document.open();
-  printWindow.document.write(`
-    <!DOCTYPE html>
-    <html lang="uz">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Smart MTT Creator</title>
-      <style>
-        body {
-          font-family: Arial, sans-serif;
-          padding: 20px;
-          color: ${mode === "bw" ? "#000" : "#591b3c"};
-        }
-        h2, h3, p { text-align: center; }
-        button {
-          padding: 12px;
-          margin: 6px;
-          border: 1px solid #999;
-          border-radius: 8px;
-          background: ${mode === "bw" ? "#fff" : "#e84d96"};
-          color: ${mode === "bw" ? "#000" : "#fff"};
-        }
-        @media print {
-          .print-action { display: none; }
-        }
-      </style>
-    </head>
-    <body>
-      <h2>Smart MTT Creator</h2>
-      ${printContent.innerHTML}
-      <button class="print-action" onclick="window.print()">🖨️ Chop etish</button>
-    </body>
-    </html>
-  `);
-  printWindow.document.close();
-});
-  </script>
+      </script>
 
 </body>
   </html>
