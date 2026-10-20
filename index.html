@@ -1283,6 +1283,151 @@ smartGameObserver.observe(document.body, {
     "tarbiyachi tekshirishi va moslashtirishi kerak.";
   result.appendChild(note);
     }
+/* SMART MTT — INTEGRATSIYALASHGAN 5 MARKAZ TIZIMI */
+function createCenterPlan() {
+  const age = document.getElementById("centerAge").value;
+  const topic = document.getElementById("centerTopic").value.trim();
+  const goal = document.getElementById("centerGoal").value.trim();
+  const result = document.getElementById("centerPlanResult");
+
+  result.replaceChildren();
+
+  if (!topic || !goal) {
+    result.textContent =
+      "Iltimos, mavzu va ta’limiy maqsadni kiriting.";
+    return;
+  }
+
+  const plans = [
+    {
+      name: "1. Fan va tabiat",
+      purpose: "Kashf etish va sabab-oqibatni anglash",
+      activity: `“Kichik tadqiqotchilar” — ${topic} mavzusiga oid tabiiy obyektlar, rasmlar yoki xavfsiz materiallarni kuzatish.`,
+      interaction:
+        "Tarbiyalanuvchilar taxmin aytadi, kuzatadi va kuzatuv natijasini o‘z so‘zlari bilan tushuntiradi.",
+      result:
+        "Kuzatuv natijasi: tarbiyalanuvchi kamida bitta yangi belgi yoki o‘zgarishni aniqlaydi."
+    },
+    {
+      name: "2. Til va nutq",
+      purpose: "Yangi bilimni so‘z bilan ifodalash",
+      activity: `“Topdim va tushuntiraman” — ${topic} bo‘yicha kuzatilgan narsani tasvirlash, savollarga javob berish va kichik hikoya tuzish.`,
+      interaction:
+        "“Nimani sezding?”, “Nega shunday deb o‘ylaysan?” va “Buni qanday tushuntirasan?” kabi ochiq savollar beriladi.",
+      result:
+        "Nutqiy natija: tarbiyalanuvchi yangi so‘z yoki tushunchani mazmunli gapda ishlatadi."
+    },
+    {
+      name: "3. Qurish, konstruksiyalash va matematika",
+      purpose: "Bilimni amaliy modelga aylantirish",
+      activity: `“Bilimni quramiz” — ${topic} bilan bog‘liq obyekt, maket yoki sodda modelni konstruktor va boshqa mos materiallardan yaratish.`,
+      interaction:
+        "Tarbiyalanuvchilar shakl, miqdor, kattalik yoki joylashuvni taqqoslaydi va modelini tushuntiradi.",
+      result:
+        "Amaliy natija: tarbiyalanuvchi mavzuga aloqador model yoki konstruksiya yaratadi."
+    },
+    {
+      name: "4. Syujetli-rolli o‘yinlar va sahnalashtirish",
+      purpose: "Bilimni hayotiy vaziyatda qo‘llash",
+      activity: `“Mavzu ichida yashaymiz” — ${topic} asosida hayotiy vaziyat yoki kichik rolli o‘yin tashkil etish.`,
+      interaction:
+        "Tarbiyalanuvchilar rollarni kelishib oladi, muammoni birgalikda hal qiladi va o‘zaro muloqot qiladi.",
+      result:
+        "Ijtimoiy natija: tarbiyalanuvchi o‘z roliga mos harakat qiladi va guruh bilan hamkorlik qiladi."
+    },
+    {
+      name: "5. San’at",
+      purpose: "O‘rgangan bilimni ijod orqali ifodalash",
+      activity: `“Mening kashfiyotim” — ${topic} bo‘yicha rasm, kollaj, applikatsiya yoki boshqa ijodiy ish yaratish.`,
+      interaction:
+        "Tarbiyalanuvchi o‘z ishini tanlagan materiallari orqali yaratadi va unda nimani ifodalaganini aytadi.",
+      result:
+        "Ijodiy natija: tarbiyalanuvchi mavzu bilan bog‘liq o‘ziga xos ijodiy mahsulot tayyorlaydi."
+    }
+  ];
+
+  const heading = document.createElement("h3");
+  heading.textContent = `📚 ${topic} — integratsiyalashgan faoliyat loyihasi`;
+  result.appendChild(heading);
+
+  const intro = document.createElement("p");
+  intro.textContent =
+    `Yosh guruhi: ${age}. Ta’limiy maqsad: ${goal}`;
+  result.appendChild(intro);
+
+  const chain = document.createElement("div");
+  chain.style.cssText =
+    "padding:14px;margin:14px 0;background:#fff0f6;" +
+    "border-radius:12px;line-height:1.8;font-weight:600;";
+  chain.textContent =
+    "🔎 KASHF ETISH → 💬 TUSHUNTIRISH → 🧱 MODELLASHTIRISH → " +
+    "🎭 HAYOTDA QO‘LLASH → 🎨 IJODIY IFODALASH";
+  result.appendChild(chain);
+
+  plans.forEach((item, index) => {
+    const card = document.createElement("article");
+    card.style.cssText =
+      "background:#fff;padding:16px;margin:12px 0;" +
+      "border:1px solid #e4c6d6;border-radius:14px;";
+
+    const title = document.createElement("h3");
+    title.textContent = item.name;
+    card.appendChild(title);
+
+    const purpose = document.createElement("p");
+    purpose.textContent = "🎯 Rivojlantiruvchi yo‘nalish: " + item.purpose;
+    card.appendChild(purpose);
+
+    const activity = document.createElement("p");
+    activity.textContent = "✨ Faoliyat: " + item.activity;
+    card.appendChild(activity);
+
+    const interaction = document.createElement("p");
+    interaction.textContent = "🧠 Interaktiv topshiriq: " + item.interaction;
+    card.appendChild(interaction);
+
+    const resultText = document.createElement("p");
+    resultText.textContent = "✅ Kutilayotgan natija: " + item.result;
+    card.appendChild(resultText);
+
+    const connection = document.createElement("p");
+    connection.style.cssText =
+      "padding:10px;background:#fff5fa;border-radius:8px;";
+    connection.textContent = index < plans.length - 1
+      ? `🔗 Keyingi markazga bog‘lanish: ${plans[index + 1].purpose}.`
+      : "🌟 Yakun: tarbiyalanuvchilar ijodiy ishlarini namoyish etadi va o‘rganganlarini tushuntiradi.";
+    card.appendChild(connection);
+
+    result.appendChild(card);
+  });
+
+  const finalTask = document.createElement("div");
+  finalTask.style.cssText =
+    "padding:16px;margin-top:16px;border-radius:12px;" +
+    "background:#f4fff5;border:1px solid #b9dfc0;";
+
+  const finalTitle = document.createElement("h3");
+  finalTitle.textContent = "🏆 Yakuniy jamoaviy vazifa";
+  finalTask.appendChild(finalTitle);
+
+  const finalText = document.createElement("p");
+  finalText.textContent =
+    `Tarbiyalanuvchilar beshta markazda olgan bilimlarini birlashtirib, ` +
+    `"${topic}" mavzusiga oid umumiy loyiha yoki ko‘rgazma yaratadi. ` +
+    "Har bir tarbiyalanuvchi o‘z hissasini tushuntiradi.";
+  finalTask.appendChild(finalText);
+
+  result.appendChild(finalTask);
+
+  const note = document.createElement("p");
+  note.style.cssText = "font-size:14px;color:#6b5360;margin-top:14px;";
+  note.textContent =
+    "Metodik eslatma: bu avtomatik tuziladigan namunaviy loyiha. " +
+    "Faoliyatlar tanlangan yosh guruhi, tarbiyalanuvchilarning imkoniyatlari, " +
+    "xavfsizlik talablari va «Ilk qadam» milliy o‘quv dasturiga muvofiq " +
+    "qo‘llanadi. Keltirilgan topshiriqlar dasturdan so‘zma-so‘z olingan emas.";
+  result.appendChild(note);
+  }
   </script>
 
 </body>
